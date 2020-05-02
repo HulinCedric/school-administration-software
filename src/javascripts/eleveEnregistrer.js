@@ -54,6 +54,8 @@ function matchEleveField() {
 			matchCheckField("AdressePrincipale", Responsables[i]["Statut"]);
 	}
 	
+	matchDataField("NiveauModifier", Enfant[0]["Niveau"]);
+	matchSelectField("Niveau", Enfant[0]["Niveau"]);
 	niveauChanged(Enfant[0]["Niveau"]);
 	matchCheckField("Sieste", Enfant[0]["Sieste"]);
 	matchDataField("LangueVivante1", Enfant[0]["LangueVivante1"]);
@@ -269,6 +271,15 @@ function eleveEnregistrer() {
   		else document.getElementById("Autre").className = "valid";
   	}
   	else document.getElementById("Autre").className = "valid";
+  	  	 
+  	// Niveau
+  	//
+	if(document.getElementById("Niveau").value == "") {
+ 		document.getElementById("Niveau").className = "invalid";
+ 		ok = false;
+		erreur = erreur + "<p>Veuillez renseigner le niveau scolaire de l'élève</p>";
+  	}
+  	else document.getElementById("Niveau").className = "valid";  	 
   	  	 	
   	// Sieste
   	//
@@ -421,6 +432,7 @@ function eleveEnregistrer() {
 					nullableValueUpdate("DepartementNaissance", document.getElementById("DepartementNaissance").value)+","+
 					nullableValueUpdate("PaysNaissance", document.getElementById("PaysNaissance").value)+","+
 
+					nullableValueUpdate("Niveau", document.getElementById("Niveau").value)+","+
 					nullableValueUpdate("Sieste", Sieste)+","+
 					nullableValueUpdate("LangueVivante1", document.getElementById("LangueVivante1").value)+","+
 					nullableValueUpdate("LangueVivante2", document.getElementById("LangueVivante2").value)+","+
@@ -466,6 +478,36 @@ function eleveEnregistrer() {
 		if (document.getElementById("Mère").value != "") associationResponsable(idEnfant, "Mère");
 		if (document.getElementById("Père").value != "") associationResponsable(idEnfant, "Père");
 		if (document.getElementById("Autre").value != "") associationResponsable(idEnfant, "Autre");
+		
+		// Modifier Niveau d'inscription
+		//
+		if (document.getElementById("Niveau").value != document.getElementById("NiveauModifier").value) {
+			// Remise a zéro des affectations
+			//
+			file(	"phpscripts/DBExecuteQuery.php",
+				"Request=UPDATE "+
+					"Scolariteinterne "+
+				"SET "+
+					nullableValueUpdate("Niveau", document.getElementById("Niveau").value)+","+
+					nullableValueUpdate("Classe", "")+","+
+					nullableValueUpdate("Module", "")+","+
+					nullableValueUpdate("DemiGroupe", "")+","+
+					nullableValueUpdate("AutorisationSortie", AutorisationSortie)+
+				" WHERE "+
+					nullableValueUpdate("Promotion", document.getElementById("PromoModifier").value)+" AND "+
+					nullableValueUpdate("Enfant", idEnfant) +";"
+			);
+			
+			// Suppression de la participation des classes vertes
+			//
+			file(	"phpscripts/DBExecuteQuery.php",
+				"Request=DELETE FROM "+
+					"Participant "+
+				"WHERE "+
+				 	"DateDebut BETWEEN '" + document.getElementById("PromoModifier").value.substring(0,4) + "/09/01' AND '" + document.getElementById("PromoModifier").value.substring(5) + "/08/31' AND "+
+					nullableValueUpdate("Enfant", idEnfant) +";"
+			);
+		}
 		
 		document.getElementById("finish").style.display = "block";
 		document.getElementById("finish").className = "finishValid";

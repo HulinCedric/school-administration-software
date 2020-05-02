@@ -1,6 +1,7 @@
 <form onsubmit="return false">
 	<input name="idEnfant" id="idEnfant" type="hidden" value="" />
 	<input name="PromoModifier" id="PromoModifier" type="hidden" value="" />
+	<input name="NiveauModifier" id="NiveauModifier" type="hidden" value="" />
 	<h2 class="trigger"><a href="#">Situation Administrative</a></h2>
 	<div class="toggle_container">
 		<p>
@@ -111,6 +112,24 @@
 	
 	<h2 class="trigger"><a href="#">Scolarité</a></h2>
 	<div class="toggle_container">
+		<p>
+			<label for="Niveau">Niveau</label>
+			<select name="Niveau" id="Niveau" onchange="niveauChanged(this.value)">
+				<option selected="selected"></option>
+				<option>PS</option>
+				<option>MS</option>
+				<option>GS</option>
+				<option>CP</option>
+				<option>CE1</option>
+				<option>CE2</option>
+				<option>CM1</option>
+				<option>CM2</option>
+				<option>6e</option>
+				<option>5e</option>
+				<option>4e</option>
+				<option>3e</option>
+			</select>
+		</p>
 		<p id="SiesteBlock" class="hidden">
 			<label for="Sieste">Fais la sieste</label>
 			<input name="Sieste" id="Sieste" type="radio" value="Oui" />Oui
