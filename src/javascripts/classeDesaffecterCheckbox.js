@@ -48,18 +48,7 @@ function classeChangeClasse() {
 	document.getElementById("Niveau2").value = Niveau2;
 	document.getElementById("Enseignant").value = Enseignant;
 
-	demigroupeChange(Niveau1, Niveau2);
-
 	enfantListerJQuery();
-}
-
-function demigroupeChange(Niveau1, Niveau2) {
-	document.getElementById("DemiGroupe").value = "";
-
-	if (isCollege(Niveau1, Niveau2))
-		document.getElementById("DemiGroupeBlock").style.display = "block";
-	else
-		document.getElementById("DemiGroupeBlock").style.display = "none";
 }
 
 autoComplete(
@@ -68,7 +57,7 @@ autoComplete(
 		"Enfant AS E, Scolariteinterne AS S",
 		"WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant AND DateRadiation IS NULL AND Promotion = '"
 				+ document.getElementById("Promotion").value
-				+ "' AND S.Classe IS NULL ");
+				+ "' AND S.Classe IS NOT NULL ");
 
 function enfantListerJQuery() {
 	var arr = new Array();
@@ -100,9 +89,9 @@ function enfantListerJQuery() {
 	arr.push(" E.idEnfant = S.Enfant ");
 	arr.push(" DateRadiation IS NULL ");
 
-	// Caracterisitique d'un eleve sans classe
+	// Caracterisitique d'un eleve avec classe
 	//
-	arr.push(" Classe IS NULL ");
+	arr.push(" Classe IS NOT NULL ");
 
 	// Correspondance au niveau de la classe
 	//
@@ -135,13 +124,13 @@ function enfantListerJQuery() {
 			libelle = libelle + " (" + data[i]["NomUsage"] + ")";
 		libelle = libelle + " " + data[i]["Prenom"];
 		addCheckField(select, "Enfants", libelle, data[i]["idEnfant"],
-				"checked");
+				"");
 	}
 }
 
 enfantListerJQuery();
 
-function classeAffecter() {
+function classeDesaffecter() {
 	var ok = true;
 	var information = "";
 	var erreur = "";
@@ -150,14 +139,6 @@ function classeAffecter() {
 	document.getElementById("Promotion").className = "valid";
 	document.getElementById("Classe").className = "valid";
 
-	if (document.getElementById("DemiGroupeBlock").style.display == "block"
-			&& document.getElementById("DemiGroupe").value == "") {
-		document.getElementById("DemiGroupe").className = "invalid";
-		ok = false;
-		erreur = erreur + "<p>Le demi-groupe n'est pas sélectionné</p>";
-	} else
-		document.getElementById("DemiGroupe").className = "valid";
-
 	if (ok) {
 		for ( var i = 0; i < parent.length; i++) {
 			if (parent[i].checked) {
@@ -165,7 +146,7 @@ function classeAffecter() {
 				//		
 				information = information + "<p>"
 						+ parent[i].parentNode.firstChild.data
-						+ " est affecté(e) dans la classe "
+						+ " est désaffecté(e) de la classe "
 						+ document.getElementById("Classe").value + "</p>";
 
 				// Mise a jour de la scolarité de l'enfant
@@ -173,11 +154,9 @@ function classeAffecter() {
 				file("phpscripts/DBExecuteQuery.php", "Request=UPDATE "
 						+ "Scolariteinterne "
 						+ "SET "
-						+ nullableValueUpdate("Classe", document
-								.getElementById("Classe").value)
+						+ nullableValueUpdate("Classe", "")
 						+ ", "
-						+ nullableValueUpdate("DemiGroupe", document
-								.getElementById("DemiGroupe").value)
+						+ nullableValueUpdate("DemiGroupe", "")
 						+ " WHERE "
 						+ nullableValueUpdate("Enfant", parent[i].value)
 						+ " AND "

@@ -2,12 +2,12 @@ autoComplete(
 		"#Nom",
 		"Nom",
 		"Enfant AS E, Scolariteinterne AS S",
-		"WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant AND DateRadiation IS NULL AND Promotion = ( SELECT max( Promotion ) FROM Scolariteinterne AS S WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant ) ");
+		"WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant AND DateRadiation IS NOT NULL AND Promotion = ( SELECT max( Promotion ) FROM Scolariteinterne AS S WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant ) ");
 autoCompleteSelectSimple(
 		"Promotion",
 		"Promotion",
 		"Enfant AS E, Scolariteinterne AS S",
-		"WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant AND DateRadiation IS NULL AND Promotion = ( SELECT max( Promotion ) FROM Scolariteinterne AS S WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant ) ");
+		"WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant AND DateRadiation IS NOT NULL AND Promotion = ( SELECT max( Promotion ) FROM Scolariteinterne AS S WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant ) ");
 
 function enfantListerJQuery() {
 	var arr = new Array();
@@ -41,7 +41,7 @@ function enfantListerJQuery() {
 
 	arr.push(" DateEntreeEcole IS NOT NULL ");
 	arr.push(" idEnfant = Enfant ");
-	arr.push(" DateRadiation IS NULL ");
+	arr.push(" DateRadiation IS NOT NULL ");
 	arr
 			.push(" Promotion = ( SELECT max( Promotion ) FROM Scolariteinterne AS S WHERE DateEntreeEcole IS NOT NULL AND idEnfant = Enfant ) ");
 
@@ -66,8 +66,7 @@ function enfantListerJQuery() {
 		if (data[i]["NomUsage"] != undefined)
 			libelle = libelle + " (" + data[i]["NomUsage"] + ")";
 		libelle = libelle + " " + data[i]["Prenom"];
-		addCheckField(select, "Enfants", libelle, data[i]["idEnfant"],
-				"");
+		addCheckField(select, "Enfants", libelle, data[i]["idEnfant"], "");
 	}
 }
 

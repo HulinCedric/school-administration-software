@@ -37,16 +37,12 @@
 			</select>
 		</p>
 	</div>
-	<p>
-		<label for="DateRadiation">Date de radiation</label>
-		<input name="DateRadiation" id="DateRadiation" class="datepicker-default" type="text" maxlength="10" />
-	</p>
 	<!-- Résultat de requête -->
 	<div class="toggle_container_notcheck" name="Enfant" id="Enfant" ></div>
 	<div id="finish" ></div>
 	<div class="button_validation">
 		<input type="reset" id="reset" value="Annuler" onclick="enfantListerJQuery();"/>
 		<!-- Envoi sur formulaire de saisi type enregistrerResponsable -->
-		<input type="button" class="submit" id="submit" value="Radier" onClick="enfantRadier(); enfantListerJQuery();" />
+		<input type="button" class="submit" id="submit" value="Déradier" onClick="enfantDeradier(); enfantListerJQuery();" />
 	</div>
 </form>

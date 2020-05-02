@@ -1,3 +1,21 @@
+# Version 1.4.0
+- Enlever l’heure des timestamps de la base de données lors d'extraction Excel.
+    - @see : DBRequest.class.php
+- Sélectionner seulement les élèves à radier et non l'inverse.
+    - @see : eleveRadier.html
+    - @see : eleveRadierCheckbox.js
+- Correction orthographique pour l'affectation.
+    - @see : classeAffecterCheckbox.js
+- Mise en place de la déradiation
+    - @see : index.html
+    - @see : enfantCheckRequest.js
+    - @add : eleveDeradier.html
+    - @add : eleveDeradierCheckbox.js
+- Mise en place de la désaffectation
+    - @see : index.html
+    - @add : classeDesaffecter.html
+    - @add : classeDesaffecterCheckbox.js
+
 # Version 1.3.0
 - Modification de la fonction niveauChanged pour intégrer certaines règles<sup>*</sup>
     - @see : eleveEnregistrer.js

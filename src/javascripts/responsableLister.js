@@ -74,10 +74,10 @@ function responsableListerJQuery() {
 				+ document.getElementById("ResponsableNom").value + "%') ");
 
 	if (document.getElementById("Promotion").value != "") {
-		tableAdditionnal = tableAdditionnal + ", ScolariteInterne AS SI";
+		tableAdditionnal = ", Scolariteinterne AS SI";
 		arr.push(" ARL.Enfant = SI.Enfant ");
-		arr.push(" Promotion = '" + document.getElementById("Promotion").value
-				+ "' ");
+		arr.push(" SI.Promotion = '"
+				+ document.getElementById("Promotion").value + "' ");
 	}
 
 	if (document.getElementById("Classe").value != "")
@@ -90,8 +90,8 @@ function responsableListerJQuery() {
 
 	arr.push(" ARL.Responsable = RL.idResponsableLegal ");
 
-	var Responsables = getValues("DISTINCT RL.*",
-			"ResponsableLegal AS RL, AssociationResponsableLegal AS ARL"
+	var Responsables = getValues(" DISTINCT RL.* ",
+			" ResponsableLegal AS RL, AssociationResponsableLegal AS ARL "
 					+ tableAdditionnal, constrainGenerator(arr)
 					+ " ORDER BY RL.Nom ");
 
@@ -234,7 +234,7 @@ function printAllResponsable() {
 				+ document.getElementById("ResponsableNom").value + "%') ");
 
 	if (document.getElementById("Promotion").value != "") {
-		tableAdditionnal = tableAdditionnal + ", ScolariteInterne AS SI";
+		tableAdditionnal = tableAdditionnal + ", Scolariteinterne AS SI";
 		arr.push(" ARL.Enfant = SI.Enfant ");
 		arr.push(" Promotion = '" + document.getElementById("Promotion").value
 				+ "' ");

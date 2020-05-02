@@ -140,6 +140,20 @@ function enfantRadier() {
 	}
 }
 
+function enfantDeradier() {
+	var parent = document.getElementsByName('Enfants');
+	for ( var i = 0; i < parent.length; i++)
+		if (parent[i].checked)
+			file("phpscripts/DBExecuteQuery.php", "Request=UPDATE " + "Enfant "
+					+ "SET " + nullableValueUpdate('DateRadiation', "")
+					+ " WHERE "
+					+ nullableValueUpdate("idEnfant", parent[i].value) + ";");
+
+	document.getElementById("finish").style.display = "block";
+	document.getElementById("finish").className = "finishValid";
+	document.getElementById("finish").innerHTML = "<p>Déradiation effectué</p>";
+}
+
 function enfantMonter() {
 	var ok = true;
 	var erreur = "";

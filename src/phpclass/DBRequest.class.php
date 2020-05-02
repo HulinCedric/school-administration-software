@@ -46,7 +46,10 @@
 			while($data = mysql_fetch_array($result)) {
 				for ($i = 0 ; $i < mysql_num_fields($result) ; $i++) {
 					$value_name = mysql_field_name($result, $i);
-					$csv .= $data[$value_name].';';
+					if (mysql_field_type($result, $i) == 'timestamp')
+						$csv .= substr($data[$value_name], 0, 10).';';
+					else
+						$csv .= $data[$value_name].';';
 				}
 				$csv .= "\n";
 			}
