@@ -1,27 +1,29 @@
-function matchAdresseFields(voieField, codePostalField, communeField, paysField, telephoneField) {
+function matchAdresseFields(voieField, codePostalField, communeField,
+		paysField, telephoneField) {
 	var arr = new Array();
-	
-	if(voieField.value != "")
- 		arr.push(" Voie = '" + addslashes(voieField.value) + "' ");
- 		
- 	if(codePostalField.value != "")
- 		arr.push(" CodePostal = '" + codePostalField.value + "' ");
- 	
- 	if(communeField.value != "")
- 		arr.push(" Commune = '" + communeField.value + "' ");
- 	
- 	if(paysField.value != "")
- 		arr.push(" Pays = '" + paysField.value + "' ");
-  	
-  	if(telephoneField.value != "")
- 		arr.push(" Telephone = '" + telephoneField.value + "' ");
- 	
- 	var constrain = constrainGenerator(arr);
- 	
- 	if (constrain == "") return;
- 	
+
+	if (voieField.value != "")
+		arr.push(" Voie = '" + addslashes(voieField.value) + "' ");
+
+	if (codePostalField.value != "")
+		arr.push(" CodePostal = '" + codePostalField.value + "' ");
+
+	if (communeField.value != "")
+		arr.push(" Commune = '" + communeField.value + "' ");
+
+	if (paysField.value != "")
+		arr.push(" Pays = '" + paysField.value + "' ");
+
+	if (telephoneField.value != "")
+		arr.push(" Telephone = '" + telephoneField.value + "' ");
+
+	var constrain = constrainGenerator(arr);
+
+	if (constrain == "")
+		return;
+
 	var Adresses = getValues("*", "Adresse", constrain);
-	
+
 	if (Adresses.length > 0) {
 		if (Adresses[0]["Voie"] != undefined)
 			voieField.value = Adresses[0]["Voie"];
@@ -38,16 +40,17 @@ function matchAdresseFields(voieField, codePostalField, communeField, paysField,
 
 function matchCommuneByCodePostalField(codePostalField, communeField, paysField) {
 	var arr = new Array();
-		
- 	if(codePostalField.value != "")
- 		arr.push(" CodePostal = '" + codePostalField.value + "' ");
- 	
- 	var constrain = constrainGenerator(arr);
- 	
- 	if (constrain == "") return;
- 	 	
+
+	if (codePostalField.value != "")
+		arr.push(" CodePostal = '" + codePostalField.value + "' ");
+
+	var constrain = constrainGenerator(arr);
+
+	if (constrain == "")
+		return;
+
 	var Adresses = getValues("DISTINCT Commune, Pays", "Adresse", constrain);
-	
+
 	if (Adresses.length > 0) {
 		if (Adresses[0]["Commune"] != undefined)
 			communeField.value = Adresses[0]["Commune"];
@@ -56,18 +59,21 @@ function matchCommuneByCodePostalField(codePostalField, communeField, paysField)
 	}
 }
 
-function matchDepartementByCommuneField(communeField, departementField, paysField) {
+function matchDepartementByCommuneField(communeField, departementField,
+		paysField) {
 	var arr = new Array();
-		
- 	if(communeField.value != "")
- 		arr.push(" CommuneNaissance = '" + communeField.value + "' ");
- 	
- 	var constrain = constrainGenerator(arr);
- 	
- 	if (constrain == "") return;
- 	 	
-	var Adresses = getValues("DISTINCT DepartementNaissance, PaysNaissance", "Enfant", constrain);
-	
+
+	if (communeField.value != "")
+		arr.push(" CommuneNaissance = '" + communeField.value + "' ");
+
+	var constrain = constrainGenerator(arr);
+
+	if (constrain == "")
+		return;
+
+	var Adresses = getValues("DISTINCT DepartementNaissance, PaysNaissance",
+			"Enfant", constrain);
+
 	if (Adresses.length > 0) {
 		if (Adresses[0]["DepartementNaissance"] != undefined)
 			departementField.value = Adresses[0]["DepartementNaissance"];
@@ -82,16 +88,16 @@ function matchDataField(fieldId, value) {
 }
 
 function matchCheckField(fieldId, value) {
-	for(var i = 0; i < document.getElementsByName(fieldId).length; i++)
-		if(document.getElementsByName(fieldId)[i].value == value)
-			document.getElementsByName(fieldId)[i].checked="checked";		
+	for ( var i = 0; i < document.getElementsByName(fieldId).length; i++)
+		if (document.getElementsByName(fieldId)[i].value == value)
+			document.getElementsByName(fieldId)[i].checked = "checked";
 }
 
 function matchSelectField(fieldId, value) {
-	for(var i = 0; i < document.getElementById(fieldId).length; i++)
-		if(document.getElementById(fieldId)[i].value == value)
-			document.getElementById(fieldId).selectedIndex = i;	
+	for ( var i = 0; i < document.getElementById(fieldId).length; i++)
+		if (document.getElementById(fieldId)[i].value == value)
+			document.getElementById(fieldId).selectedIndex = i;
 
-	if(document.getElementById(fieldId).onchange != undefined)
-		document.getElementById(fieldId).onchange();	
+	if (document.getElementById(fieldId).onchange != undefined)
+		document.getElementById(fieldId).onchange();
 }
