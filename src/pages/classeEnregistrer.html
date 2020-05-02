@@ -1,0 +1,64 @@
+<form onSubmit="return false">
+	<input name="NomClasseModifier" id="NomClasseModifier" type="hidden" value="" />	
+	<input name="PromoModifier" id="PromoModifier" type="hidden" value="" />	
+	<h2 class="trigger"><a>Scolarité</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion"></select>
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a>Niveau</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Niveau1">Niveau 1</label>
+			<select name="Niveau1" id="Niveau1" onchange="niveauChanged(this.value)">
+				<option selected="selected"></option>
+				<option>PS</option>
+				<option>MS</option>
+				<option>GS</option>
+				<option>CP</option>
+				<option>CE1</option>
+				<option>CE2</option>
+				<option>CM1</option>
+				<option>CM2</option>
+				<option>6e</option>
+				<option>5e</option>
+				<option>4e</option>
+				<option>3e</option>
+			</select>
+		</p>
+		<p id="Niveau2Block" class="hidden">
+			<label for="Niveau2">Niveau 2</label>
+			<select name="Niveau2" id="Niveau2"></select>
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a>Enseignant à charge</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Enseignant">Enseignant</label>
+			<select name="Enseignant" id="Enseignant"></select>
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a>Service de cantine</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="NomService">Nom du service</label>
+			<select name="NomService" id="NomService" onchange="nomServiceChanged(this.value)">
+				<option selected="selected"></option>
+			</select>
+		</p>
+		<p id="HeureRepasBlock" class="hidden">
+			<label for="HeureRepas">Heure associé</label>
+			<input name="HeureRepas" id="HeureRepas" type="text" maxlength="5" disabled="disabled" />
+		</p>
+	</div>
+	<div id="finish" ></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="niveauChanged('');nomServiceChanged('');" />
+		<input type="button" id="submit" class="submit" value="Enregistrer" onClick="classeEnregistrer()" />
+	</div>
+</form>

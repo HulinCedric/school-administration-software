@@ -1,0 +1,23 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Fonction</a></h2>
+	<div class="toggle_container_open">
+        <p>
+			<label for="Fonction">Fonction</label>
+			<select name="Fonction" id="Fonction" onchange="personnelListerJQuery()">
+				<option selected="selected"></option>
+				<option>Enseignant</option>
+				<option>Personnel</option>
+				<option>AVS</option>
+			</select>
+		</p>
+		<input name="Radier" id="Radier" type="hidden" value="NULL" />
+  	</div>
+	<!-- Résultat de requête -->
+	<div name="Personnel" id="Personnel"></div>
+		
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="idSelectedChange(-1);personnelListerJQuery();"/>
+		<!-- Envoi sur formulaire de saisi type enregistrerResponsable -->
+		<input type="button" class="submit" id="submit" value="Radier" onClick="file('phpscripts/DBExecuteQuery.php','Request=UPDATE Personnel SET DateRadiation=CURRENT_TIMESTAMP WHERE idPersonnel='+idSelected+'');idSelectedChange(-1);personnelListerJQuery();" />
+	</div>
+</form>

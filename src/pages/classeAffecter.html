@@ -1,0 +1,52 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Identité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Sexe">Sexe</label>
+			<input name="Sexe" id="Sexe" type="radio" value="M" onclick="enfantListerJQuery()" />M
+			<input name="Sexe" type="radio" value="F" onclick="enfantListerJQuery()" />F
+		</p>
+		<p>
+			<label for="Nom">Nom</label>
+			<input name="Nom" id="Nom" type="text" maxlength="50" onchange="enfantListerJQuery()" />
+		</p>
+	</div>
+	<h2 class="trigger"><a>Classe en affectation</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="anneeScolaireChangeClasse()"></select>
+		</p>
+		<p>
+			<label for="Classe">Classe</label>
+			<select name="Classe" id="Classe" onchange="classeChangeClasse()"></select>
+		</p>
+		<p id="DemiGroupeBlock" class="hidden">
+			<label for="DemiGroupe">Demi groupe</label>
+			<select name="DemiGroupe" id="DemiGroupe">
+				<option selected="selected"></option>
+				<option>1</option>
+				<option>2</option>
+			</select>
+		</p>
+		<p>
+			<label for="Niveau1">Niveau1</label>
+			<input type="text" name="Niveau1" id="Niveau1" disabled="disabled" value="" />
+		</p>
+		<p>
+			<label for="Niveau2">Niveau2</label>
+			<input type="text" name="Niveau2" id="Niveau2" disabled="disabled" value="" />
+		</p>
+		<p>
+			<label for="Enseignant">Enseignant</label>
+			<input type="text" name="Enseignant" id="Enseignant" disabled="disabled" value="" />
+		</p>
+	</div>
+	<!-- Résultat de requête -->
+	<div class="toggle_container_check" name="Enfant" id="Enfant" ></div>
+	<div id="finish"></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler"  onclick="setTimeout('anneeScolaireChangeClasse();enfantListerJQuery()',200);">
+		<input type="button" id="submit" class="submit" value="Affecter" onClick="classeAffecter(); enfantListerJQuery();" />
+	</div>
+</form>

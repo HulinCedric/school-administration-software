@@ -1,0 +1,19 @@
+<form onSubmit="return false">
+	<input name="NomServiceModifier" id="NomServiceModifier" type="hidden" value="" />	
+	<h2 class="trigger"><a>Service</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="NomService">Nom</label>
+			<input name="NomService" id="NomService" type="text" maxlength="100" />
+		</p>
+		<p>
+			<label for="HeureRepas">Heure</label>
+			<input class="timepicker" name="HeureRepas" id="HeureRepas" type="text" maxlength="5" />
+		</p>
+	</div>
+	<div id="finish" ></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" />
+		<input type="button" id="submit" class="submit" value="Enregistrer" onClick="cantineEnregistrer()" />
+	</div>
+</form>

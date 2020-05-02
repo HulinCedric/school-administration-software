@@ -1,0 +1,8 @@
+php 1
+
+ErrorDocument 404 ./pages/404.html
+
+PerlSetVar AuthFile security/.htpasswd
+AuthName "Acces Restreint"
+AuthType Basic
+require valid-user

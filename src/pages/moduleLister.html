@@ -1,0 +1,18 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Scolarité</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="moduleListerJQuery"></select>
+		</p>
+	</div>
+	<p>
+		<!-- Résultat de requête -->
+		<div name="Module" id="Module"></div>
+	</p>
+	<div id="button" class="button_multiple_validation">
+		<input type="reset" id="reset" value="Annuler"  onclick="moduleListerJQuery()">
+		<input type="submit" id="submit" class="submit" value="Imprimer" onClick="printModule()" />
+		<input type="button" class="submit" id="all" value="Imprimer tout" onClick="printAllModule()" />
+	</div>
+</form>

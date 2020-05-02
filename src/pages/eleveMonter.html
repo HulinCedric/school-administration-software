@@ -1,0 +1,93 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Identité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Sexe">Sexe</label>
+			<input name="Sexe" id="Sexe" type="radio" value="M" onclick="enfantListerJQuery()" />M
+			<input name="Sexe" type="radio" value="F" onclick="enfantListerJQuery()" />F
+		</p>
+		<p>
+			<label for="Nom">Nom</label>
+			<input name="Nom" id="Nom" type="text" maxlength="50" onchange="enfantListerJQuery()" />
+		</p>
+	</div>
+	<h2 class="trigger"><a>Scolarité (Filtre)</a></h2>
+	<div class="toggle_container">
+		<p>
+			<!-- généré -->
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="enfantListerJQuery();promotionInscriptionChange(this.value)"></select>
+		</p>	
+		<p>
+			<label for="Niveau">Niveau</label>
+			<select name="Niveau" id="Niveau" onchange="enfantListerJQuery()">
+				<option selected="selected"></option>
+				<option>PS</option>
+				<option>MS</option>
+				<option>GS</option>
+				<option>CP</option>
+				<option>CE1</option>
+				<option>CE2</option>
+				<option>CM1</option>
+				<option>CM2</option>
+				<option>6e</option>
+				<option>5e</option>	
+				<option>4e</option>
+			</select>
+		</p>
+	</div>
+	<h2 class="trigger"><a href="#">Réinscription</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="PromotionInscription">Année scolaire</label>
+			<select name="PromotionInscription" id="PromotionInscription" onchange="enfantListerJQuery();"></select>
+		</p>
+		<label for="NiveauInscription">Niveau (si doublement ou saut de classe)</label>
+			<select name="NiveauInscription" id="NiveauInscription">
+				<option selected="selected"></option>
+				<option>PS</option>
+				<option>MS</option>
+				<option>GS</option>
+				<option>CP</option>
+				<option>CE1</option>
+				<option>CE2</option>
+				<option>CM1</option>
+				<option>CM2</option>
+				<option>6e</option>
+				<option>5e</option>	
+				<option>4e</option>
+				<option>3e</option>
+			</select>
+		<p>
+			<label for="DateDemandeInscription">Date de demande d'inscription</label>
+			<input name="DateDemandeInscription" id="DateDemandeInscription" type="text" maxlength="10" />
+		</p>
+		<p>
+			<label for="DecisionCommission">Decision de la commission</label>
+			<input name="DecisionCommission" id="DecisionCommission" type="radio" value="Oui" />Oui
+			<input name="DecisionCommission" type="radio" value="Non" />Non
+		</p>
+		<p>
+			<label for="ConfirmationParents">Confirmation des parents</label>
+			<input name="ConfirmationParents" id="ConfirmationParents" type="radio" value="Oui" />Oui
+			<input name="ConfirmationParents" type="radio" value="Non" />Non
+		</p>
+		<p>
+			<label for="DateEntreeEcole">Date d'entrée dans l'école</label>
+			<input name="DateEntreeEcole" id="DateEntreeEcole" type="text" maxlength="10" />
+		</p>
+		<p>
+			<label for="AutorisationSortie">Autorisation de sortie</label>
+			<input name="AutorisationSortie" id="AutorisationSortie" type="radio" value="Oui" />Oui
+			<input name="AutorisationSortie" type="radio" value="Non" />Non
+		</p>
+	</div>
+	<!-- Résultat de requête -->
+	<div class="toggle_container_check" name="Enfant" id="Enfant" ></div>
+	<div id="finish" ></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="enfantListerJQuery();"/>
+		<!-- Envoi sur formulaire de saisi type enregistrerResponsable -->
+		<input type="button" class="submit" id="submit" value="Réinscrire" onClick="enfantMonter(); enfantListerJQuery();" />
+	</div>
+</form>

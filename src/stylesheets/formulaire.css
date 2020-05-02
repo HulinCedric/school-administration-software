@@ -1,0 +1,232 @@
+form {
+	margin-bottom: 100px;
+}
+
+/* Categorie du formulaire */
+h2.trigger {
+	padding-left: 100px;
+	margin-bottom: 0;
+	background-color: gray;
+	height: 30px;
+	line-height: 30px;
+	font-size: 1.4em;
+	font-weight: normal;
+	cursor:pointer;
+}
+
+h2.trigger a {
+	color: white;
+	text-decoration: none;
+}
+
+h2.trigger a:hover {
+	color: #ccc;
+}
+
+.toggle_container_check, .toggle_container_notcheck {
+	padding-left: 10px;
+	padding-right: 10px;
+
+	-moz-column-count: 5;
+	-moz-column-gap: 10px;
+	-webkit-column-count: 5;
+	-webkit-column-gap: 10px;
+	column-count: 5;
+	column-gap: 10px; 
+}
+
+/* Parti caché contenant les champs par categorie du formulaire */
+.toggle_container, .toggle_container_open {
+	padding-left: 20px;
+		
+	-moz-column-count: 2;
+	-moz-column-gap: 10px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 10px;
+	column-count: 2;
+	column-gap: 10px; 
+}
+
+.toggle_container p, .toggle_container_check p, .toggle_container_open p, .toggle_container_notcheck p {
+	display: block;
+	font-size: 1em;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+}
+
+.toggle_container_check p, .toggle_container_notcheck p {
+	cursor: pointer;
+	font-size: 1.2em;
+	text-align: center;
+	border: 1px solid gray;
+	border-radius: 10px;
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.5); 
+}
+
+.toggle_container_check p {
+	color: white;
+	background-color: gray;
+}
+
+.toggle_container_notcheck p {
+	color: black;
+	background-color: rgba(255,255,255,0);
+}
+
+.toggle_container_check p input[type=checkbox], .toggle_container_notcheck p input[type=checkbox] {
+	display: none;
+}
+
+/* Description d'un champs */
+label {
+	float: left;
+	width: 240px;
+	font-size: 0.8em;
+	font-family: "Arial Black", Arial, sans-serif;
+	vertical-align: central;
+}
+
+/* Les differents champs */
+input[type=text], input[type=password], input[type=reset], .submit, select, textarea {
+	width: 160px;
+	padding: 5px;
+	color: gray;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+	font-size: 1em;
+
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	vertical-align: top;
+	
+	transition: all 0.25s ease-in-out;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	
+	box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+	-webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+	-moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+select[size] {
+	width: 250px;
+}
+
+select[size="5"] {
+	width: 200px;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+	color: black;
+	outline: none;
+	position: relative;
+	z-index: 5;
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	-webkit-box-shadow: 0 0 5px rgba(75, 137, 208, 1);
+	-moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	transition: all 0.25s ease-in-out;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+}
+
+input[type=radio], input[type=checkbox] {
+	width: 20px;
+	padding: 10px;
+}
+
+input[type=reset], .submit {
+	width: auto;
+	cursor: pointer;
+	position: relative;
+	padding: 6px 16px;
+	text-decoration: none;
+	font-size: 1.2em;
+	margin-left: 25px;
+	margin-right: 25px;
+
+
+	box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+.submit {
+	border: 1px solid #282828;
+	color: #fff;
+	background: #555;
+}
+
+input[type=reset]:hover, .submit:hover {
+	background: #CCCCCC;
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+}
+
+.submit:hover {
+	background: #282828;
+}
+
+#finish {
+	border-radius: 3px;
+	display: none;
+	font-size: 22px;
+	letter-spacing: 2px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-shadow: 0px 1px 0px gray;
+	text-align: center;
+}
+
+.finishInvalid {
+	border: 2px solid maroon;
+	background-color: rgba(255, 00, 00, 0.4);
+}
+
+.finishValid {
+	border: 2px solid #41a62a;
+	background-color: rgba(65, 166, 42, 0.2);
+}
+
+.valid {
+	background-color: rgba(65, 166, 42, 0.2);
+}
+
+.invalid {
+	background-color: rgba(255, 00, 00, 0.4);
+}
+
+.button_validation {
+	width: 410px;
+	bottom: 30px;
+	left:35%;
+	position:fixed;
+	z-index: 999;
+}
+
+.button_multiple_validation {
+	width: 570px;
+	bottom: 30px;
+	left:30%;
+	position:fixed;
+	z-index: 999;
+}
+
+.ui-autocomplete {
+	max-height: 100px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 20px;
+}
+
+form .hidden {
+	display: none;
+}

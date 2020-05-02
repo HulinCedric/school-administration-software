@@ -1,0 +1,27 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Classe verte</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="anneeScolaireChangeClasseVerte()"></select>
+		</p>
+		<p>
+			<label for="Classe">Classe</label>
+			<select name="Classe" id="Classe" onchange="enfantListerJQuery()"></select>
+		</p>
+	</div>
+	<h2 class="trigger"><a>Classe verte</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<!-- Résultat de requête -->
+			<label for="ClasseVerte">Classes verte</label>
+			<select name="ClasseVerte" id="ClasseVerte" onchange="enfantListerJQuery()" ></select>
+		</p>
+	</div>
+	<!-- Résultat de requête -->
+	<div class="toggle_container_notcheck" name="Enfant" id="Enfant" ></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler"  onclick="setTimeout('anneeScolaireChangeClasse()',200);">
+		<input type="button" id="submit" class="submit" value="Imprimer" onClick="printAttestation();" />
+	</div>
+</form>

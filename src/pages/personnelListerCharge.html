@@ -1,0 +1,17 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Année scolaire</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="personnelListerJQuery()"></select>
+		</p>
+  	</div>
+	<!-- Résultat de requête -->
+	<div name="Charge" id="Charge"></div>
+	<div id="button" class="button_multiple_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="idSelectedChange(-1);personnelListerJQuery();"/>
+		<!-- Envoi sur formulaire de saisi type enregistrerResponsable -->
+		<input type="button" class="submit" id="submit" value="Imprimer" onClick="printCharge()" />
+		<input type="button" class="submit" id="all" value="Imprimer tout" onClick="printAllCharge()" />
+	</div>
+</form>

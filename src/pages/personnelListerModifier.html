@@ -1,0 +1,27 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Fonction</a></h2>
+	<div class="toggle_container_open">
+    	<p>
+			<label for="Fonction">Fonction</label>
+			<select name="Fonction" id="Fonction" onchange="personnelListerJQuery()">
+				<option selected="selected"></option>
+				<option>Enseignant</option>
+				<option>Personnel</option>
+				<option>AVS</option>
+			</select>
+		</p>
+		<p>
+			<label for="Radier">Radier</label>
+			<input name="Radier" id="Radier" type="radio" value="NOT NULL" onclick="personnelListerJQuery();" />Oui
+			<input name="Radier" type="radio" value="NULL" onclick="personnelListerJQuery();" />Non
+		</p>
+  	</div>
+	<!-- Résultat de requête -->
+	<div name="Personnel" id="Personnel"></div>
+		
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="idSelectedChange(-1);personnelListerJQuery();"/>
+		<!-- Envoi sur formulaire de saisi type enregistrerResponsable -->
+		<input type="button" class="submit" id="submit" value="Modifier" onClick="loadpage('pages/personnelEnregistrer.html', 'body');loadobjs('javascripts/personnelEnregistrer.js');loadobjs('javascripts/jquery.formulaire.js');document.getElementById('submit').value = 'Modifier';document.getElementById('idPersonnel').value=idSelected;" />
+	</div>
+</form>

@@ -1,0 +1,19 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Promotion</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="cantineListerJQuery()"></select>
+		</p>	
+	</div>
+	<p>
+		<!-- Résultat de requête -->
+		<div name="Cantine" id="Cantine"></div>
+	</p>
+	<div id="button" class="button_multiple_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="idSelectedChange(-1);cantineListerJQuery();"/>
+		<!-- Envoi sur formulaire de saisi type enregistrerResponsable -->
+		<input type="button" class="submit" id="submit" value="Imprimer" onClick="printCantine()" />
+		<input type="button" class="submit" id="all" value="Imprimer tout" onClick="printAllCantine()" />
+	</div>
+</form>

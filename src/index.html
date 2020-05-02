@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<meta name="keywords" content="ecole, decroly" />
+		<meta name="author" content="Cédric Hulin" />
+		<meta name="robots" content="none,noarchive" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" /> 
+		<meta http-equiv="Content-Language" content="fr" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Ecole publique Decroly</title>
+		
+		<!-- Lien de l'icone -->
+		<link rel="icon" href="images/favicon.png" type="image/x-icon" />
+		<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+		<!-- Inclusion du css -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
+
+		<!-- Inclusion des css des pages additionnelles -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/formulaire.css" />
+		<link rel="stylesheet" type="text/css" href="library/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="library/jquery-ui-timepicker.css" />
+		
+		<!-- Inclusion des librairies -->
+		<script type="text/JavaScript" src="library/jquery.min.js"></script>
+		<script type="text/JavaScript" src="library/jquery-ui.min.js"></script>
+		<script type="text/JavaScript" src="library/jquery.ui.datepicker-fr.js"></script>
+		<script type="text/JavaScript" src="library/jquery.ui.timepicker.js"></script>
+		
+		<!-- Inclusion des scripts JavaScript -->
+		<script type="text/JavaScript" src="javascripts/jquery.menu.js"></script>
+		<script type="text/JavaScript" src="javascripts/jquery.autocomplete.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.checkbox.js"></script>
+		<script type="text/JavaScript" src="javascripts/ajax.request.js"></script>
+		<script type="text/JavaScript" src="javascripts/ajax.dynamicForm.js"></script>
+		<script type="text/JavaScript" src="javascripts/ajax.matchField.js"></script>
+		<script type="text/javascript" src="javascripts/function.verification.js"></script>
+		<script type="text/javascript" src="javascripts/function.date.js"></script>
+	</head>
+	<body>
+		<div id="header">
+		<ul id="navigation">
+			<li id="current" class="toggleSubMenu"><span>Enfant</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/enfantEnregistrer.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/enfantEnregistrer.js');">
+								<a>Enregistrer</a>
+					</li>
+					<li onclick="loadpage('pages/enfantLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/enfantLister.js');
+								document.getElementById('submit').value = 'Modifier';
+								document.getElementById('button').className = 'button_validation';
+								document.getElementById('all').style.display = 'none';
+								document.getElementById('submit').onclick = function() {
+									loadpage('pages/enfantEnregistrer.html', 'body');
+									document.getElementById('idEnfant').value=idSelected;
+									document.getElementById('PromoModifier').value=promotionSelected;
+									loadobjs('javascripts/enfantEnregistrer.js');
+									loadobjs('javascripts/jquery.formulaire.js');
+									document.getElementById('submit').value = 'Modifier';
+								};">
+								<a>Modifier</a>
+					</li>
+					<li onclick="loadpage('pages/enfantLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/enfantLister.js');">
+								<a>Lister</a>
+					</li>
+					<li onclick="loadpage('pages/Construction.html', 'body');"><a>Commission</a></li>
+					<li onclick="loadpage('pages/Construction.html', 'body');"><a>Confirmation</a></li>
+					<li onclick="loadpage('pages/enfantRentre.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/enfantListerCheckbox.js');
+								loadobjs('javascripts/enfantCheckRequest.js');">
+								<a>Rentrée scolaire</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggleSubMenu"><span>Élève</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/eleveLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/eleveLister.js');
+								document.getElementById('submit').value = 'Modifier';
+								document.getElementById('button').className = 'button_validation';
+								document.getElementById('all').style.display = 'none';
+								document.getElementById('submit').onclick = function() {
+									loadpage('pages/eleveEnregistrer.html', 'body');
+									document.getElementById('idEnfant').value=idSelected;
+									document.getElementById('PromoModifier').value=promotionSelected;
+									loadobjs('javascripts/eleveEnregistrer.js');
+									loadobjs('javascripts/jquery.formulaire.js');
+									document.getElementById('submit').value = 'Modifier';
+								};">
+								<a>Modifier</a>
+					</li>
+					<li onclick="loadpage('pages/eleveLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/eleveLister.js');">
+								<a>Lister</a>
+					</li>
+					<li onclick="loadpage('pages/eleveLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/eleveListerBenjamin.js');">
+								<a>Lister Benjamin</a>
+					</li>
+					<li onclick="loadpage('pages/eleveMonter.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/eleveMonterCheckbox.js');
+								loadobjs('javascripts/enfantCheckRequest.js');">
+								<a>Réinscrire/Monter</a>
+					</li>
+					<li onclick="loadpage('pages/eleveRadier.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/eleveRadierCheckbox.js');
+								loadobjs('javascripts/enfantCheckRequest.js');">
+								<a>Radier</a>
+					</li>
+					<li onclick="loadpage('pages/eleveAbsenceEnregister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/eleveAbsenceCheckbox.js');">
+								<a>Ajouter absence</a>
+					</li>
+					<li onclick="loadpage('pages/eleveAbsenceLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/eleveAbsenceLister.js');">
+								<a>Lister absence</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggleSubMenu"><span>Responsable</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/responsableEnregistrer.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/responsableEnregistrer.js');">
+								<a>Enregistrer</a>
+					</li>
+					<li onclick="loadpage('pages/responsableLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/responsableLister.js');
+								document.getElementById('submit').value = 'Modifier';
+								document.getElementById('button').className = 'button_validation';
+								document.getElementById('all').style.display = 'none';
+								document.getElementById('submit').onclick = function() {
+									loadpage('pages/responsableEnregistrer.html', 'body');
+									document.getElementById('idResponsableLegal').value=idSelected;
+									loadobjs('javascripts/responsableEnregistrer.js');
+									loadobjs('javascripts/jquery.formulaire.js');
+									document.getElementById('submit').value = 'Modifier';
+								};">
+								<a>Modifier</a>
+					</li>
+					<li onclick="loadpage('pages/responsableLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/responsableLister.js');">
+								<a>Lister</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggleSubMenu"><span>Classe</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/classeEnregistrer.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeEnregistrer.js');">
+								<a>Enregistrer</a>
+					</li>
+					<li onclick="loadpage('pages/classeLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeLister.js');
+								document.getElementById('submit').value = 'Modifier';
+								document.getElementById('button').className = 'button_validation';
+								document.getElementById('all').style.display = 'none';
+								document.getElementById('submit').onclick = function() {
+									loadpage('pages/classeEnregistrer.html', 'body');
+									document.getElementById('NomClasseModifier').value=nomClasseSelected;
+									document.getElementById('PromoModifier').value=promotionSelected;
+									loadobjs('javascripts/classeEnregistrer.js');
+									loadobjs('javascripts/jquery.formulaire.js');
+									document.getElementById('submit').value = 'Modifier';
+								};">
+								<a>Modifier</a>
+					</li>
+					<li onclick="loadpage('pages/classeLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeLister.js');">
+								<a>Lister</a>
+					</li>
+					<li onclick="loadpage('pages/classeAffecter.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeAffecterCheckbox.js');">
+								<a>Affectation</a>
+					</li>
+					<li onclick="loadpage('pages/classeListerDemi.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeListerDemi.js');">
+								<a>Lister 1/2 classe</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggleSubMenu"><span>Module</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/moduleLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/moduleLister.js');">
+								<a>Lister</a>
+					</li>
+					<li onclick="loadpage('pages/moduleAffecter.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/moduleAffecterCheckbox.js');">
+								<a>Affectation</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggleSubMenu"><span>Personnel</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/personnelEnregistrer.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/personnelEnregistrer.js');">
+								<a>Enregistrer</a>
+					</li>
+					<li onclick="loadpage('pages/personnelListerModifier.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/personnelLister.js');">
+								<a>Modifier</a>
+					</li>
+					<li onclick="loadpage('pages/personnelLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/personnelLister.js');">
+								<a>Lister</a>
+					</li>
+					<li onclick="loadpage('pages/personnelAffecter.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/personnelAffecterCheckbox.js');">
+								<a>Affecter charge</a>
+					</li>
+					<li onclick="loadpage('pages/personnelListerCharge.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/personnelListerCharge.js');">
+								<a>Lister charge</a>
+					</li>
+					<li onclick="loadpage('pages/personnelRadier.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/personnelLister.js');">
+								<a>Radier</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggleSubMenu"><span>Cantine</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/cantineEnregistrer.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/cantineEnregistrer.js');">
+								<a>Enregistrer</a>
+					</li>
+					<li onclick="loadpage('pages/cantineLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/cantineLister.js');
+								document.getElementById('submit').value = 'Modifier';
+								document.getElementById('button').className = 'button_validation';
+								document.getElementById('all').style.display = 'none';
+								document.getElementById('submit').onclick = function() {
+									loadpage('pages/cantineEnregistrer.html', 'body');
+									document.getElementById('NomServiceModifier').value=nomServiceSelected;
+									loadobjs('javascripts/jquery.formulaire.js');
+									loadobjs('javascripts/cantineEnregistrer.js');
+									document.getElementById('submit').value = 'Modifier';
+								};">
+								<a>Modifier</a>
+					</li>
+					<li onclick="loadpage('pages/cantineLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/cantineLister.js');">
+								<a>Lister</a>
+					</li>
+					<li onclick="loadpage('pages/cantineAbsenceEnregister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/cantineAbsenceCheckbox.js');">
+								<a>Ajouter absence</a>
+					</li>
+					<li onclick="loadpage('pages/cantineAbsenceLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/cantineAbsenceLister.js');">
+								<a>Lister absence</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggleSubMenu"><span>Classe verte</span>
+				<ul class="subMenu">
+					<li onclick="loadpage('pages/classeVerteEnregistrer.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteEnregistrer.js');">
+								<a>Enregistrer</a>
+					</li>
+					<li onclick="loadpage('pages/classeVerteLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteLister.js');
+								document.getElementById('submit').value = 'Modifier';
+								document.getElementById('button').className = 'button_validation';
+								document.getElementById('all').style.display = 'none';
+								document.getElementById('submit').onclick = function() {
+									loadpage('pages/classeVerteEnregistrer.html', 'body');
+									document.getElementById('LieuModifier').value=lieuClasseVerteSelected;
+									document.getElementById('DateDebutModifier').value=dateDebutClasseVerteSelected;
+									loadobjs('javascripts/jquery.formulaire.js');
+									loadobjs('javascripts/classeVerteEnregistrer.js');
+									document.getElementById('submit').value = 'Modifier';
+								}">
+								<a>Modifier</a>
+					</li>
+					<li onclick="loadpage('pages/classeVerteLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteLister.js');">
+								<a>Lister</a>
+					</li>
+					<li onclick="loadpage('pages/classeVerteLister.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteLister.js');
+								document.getElementById('submit').value = 'Selectionner';
+								document.getElementById('button').className = 'button_validation';
+								document.getElementById('all').style.display = 'none';
+								document.getElementById('submit').onclick = function() {
+									loadpage('pages/classeVerteVerser.html', 'body');
+									document.getElementById('LieuModifier').value=lieuClasseVerteSelected;
+									document.getElementById('DateDebutModifier').value=dateDebutClasseVerteSelected;
+									loadobjs('javascripts/jquery.formulaire.js');
+									loadobjs('javascripts/classeVerteVerser.js');
+									document.getElementById('submit').value = 'Enregistrer';
+								}">
+								<a>Versement</a>
+					</li>
+					<li onclick="loadpage('pages/classeVerteAffecterEnfant.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteAffecterEnfantCheckbox.js');">
+								<a>Affecter élève</a>
+					</li>
+					<li onclick="loadpage('pages/classeVerteAffecterPersonnel.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteAffecterPersonnelCheckbox.js');">
+								<a>Affecter personnel</a>
+					</li>
+					<li onclick="loadpage('pages/classeVerteAttestation.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteAttestationClasse.js');">
+								<a>Attestation classe</a>
+					</li>
+					<li onclick="loadpage('pages/classeVerteAttestation.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/classeVerteAttestationPaiement.js');">
+								<a>Attestation paiement</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		</div>
+		<div id="body"></div>
+		<script type="text/JavaScript">loadpage('pages/Home.html', 'body');</script>
+	</body>
+</html>

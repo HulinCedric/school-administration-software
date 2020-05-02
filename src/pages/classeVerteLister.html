@@ -1,0 +1,17 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Année scolaire</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="classeVerteListerJQuery()"></select>
+		</p>
+	</div>
+	<p>
+		<div name="ClasseVerte" id="ClasseVerte" ></div>
+	</p>
+	<div id="button" class="button_multiple_validation">
+		<input type="reset" id="reset" value="Annuler"  onclick="setTimeout('classeVerteListerJQuery()',200);">
+		<input type="submit" id="submit" class="submit" value="Imprimer" onClick="printClasseVerte()" />
+		<input type="button" class="submit" id="all" value="Imprimer tout" onClick="printAllClasseVerte()" />
+	</div>
+</form>

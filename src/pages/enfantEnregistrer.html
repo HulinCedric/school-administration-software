@@ -1,0 +1,266 @@
+<form onsubmit="return false">
+	<input name="idEnfant" id="idEnfant" type="hidden" value="" />	
+	<input name="PromoModifier" id="PromoModifier" type="hidden" value="" />	
+	<h2 class="trigger"><a href="#">Situation Administrative</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="INE">INE</label>
+			<input name="INE" id="INE" type="text" maxlength="10" />
+		</p>
+		<p>
+			<label for="RegistreMatricule">Registre Matricule</label>
+			<input name="RegistreMatricule" id="RegistreMatricule" type="text" maxlength="12" />
+		</p>
+		<p>
+			<label for="DateDemandeInscription">Date de demande d'inscription</label>
+			<input name="DateDemandeInscription" id="DateDemandeInscription" type="text" maxlength="10" />
+		</p>
+		<p>
+			<label for="DecisionCommission">Decision de la commission</label>
+			<input name="DecisionCommission" id="DecisionCommission" type="radio" value="Oui" />Oui
+			<input name="DecisionCommission" type="radio" value="Non" />Non
+		</p>
+		<p>
+			<label for="ConfirmationParents">Confirmation des parents</label>
+			<input name="ConfirmationParents" id="ConfirmationParents" type="radio" value="Oui" />Oui
+			<input name="ConfirmationParents" type="radio" value="Non" />Non
+		</p>
+		<p>
+			<label for="DateEntreeEcole">Date d'entree dans l'école</label>
+			<input name="DateEntreeEcole" id="DateEntreeEcole" type="text" maxlength="10" />
+		</p>
+	</div>
+
+	<h2 class="trigger"><a href="#">Identité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Sexe">Sexe</label>
+			<input name="Sexe" id="Sexe" type="radio" value="M" />M
+			<input name="Sexe" type="radio" value="F" />F
+		</p>
+		<p>
+			<label for="Nom">Nom</label>
+			<input name="Nom" id="Nom" type="text" maxlength="50" />
+		</p>
+		<p>
+			<label for="NomUsage">Nom d'usage</label>
+			<input name="NomUsage" id="NomUsage" type="text" maxlength="50" />
+		</p>
+		<p>
+			<label for="Prenom">Prénom</label>
+			<input name="Prenom" id="Prenom" type="text" maxlength="50" />
+		</p>
+		<p>
+			<label for="DateNaissance">Date de naissance</label>
+			<input name="DateNaissance" id="DateNaissance" class="datepicker-naissance" type="text" maxlength="10" />
+		</p>
+		<p>
+			<label for="Nationalite">Nationalité</label>
+			<input name="Nationalite" id="Nationalite" type="text" maxlength="100" value="Française" />
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Lieu de naissance</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="CommuneNaissance">Commune de naissance</label>
+			<input name="CommuneNaissance" id="CommuneNaissance" type="text" maxlength="100" onblur="matchDepartementByCommuneField(document.getElementById('CommuneNaissance'), document.getElementById('DepartementNaissance'), document.getElementById('PaysNaissance'));" />
+		</p>
+		<p>
+			<label for="DepartementNaissance">Département de naissance</label>
+			<input name="DepartementNaissance" id="DepartementNaissance" type="text" maxlength="100" />
+		</p>
+		<p>
+			<label for="PaysNaissance">Pays de naissance</label>
+			<input name="PaysNaissance" id="PaysNaissance" type="text" maxlength="40" />
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Mère</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Mère">Identité</label>
+			<select name="Mère" id="Mère" onchange="responsableChanged(this.id)"></select>
+		</p>
+		<p id="MèreAutoriteParentaleBlock" class="hidden">
+			<label for="MèreAutoriteParentale">Autorité Parentale</label>
+			<input name="MèreAutoriteParentale" id="MèreAutoriteParentale" type="radio" value="Oui" />Oui
+			<input name="MèreAutoriteParentale" type="radio" value="Non" />Non
+		</p>
+		<p id="MèreAdressePrincipaleBlock" class="hidden">
+			<label for="MèreAdressePrincipale">Adresse Principale</label>
+			<input name="AdressePrincipale" id="MèreAdressePrincipale" type="radio" value="Mère" />Oui
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Père</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Père">Identité</label>
+			<select name="Père" id="Père" onchange="responsableChanged(this.id)"></select>
+		</p>
+		<p id="PèreAutoriteParentaleBlock" class="hidden">
+			<label for="PèreAutoriteParentale">Autorité Parentale</label>
+			<input name="PèreAutoriteParentale" id="PèreAutoriteParentale" type="radio" value="Oui" />Oui
+			<input name="PèreAutoriteParentale" type="radio" value="Non" />Non
+		</p>
+		<p id="PèreAdressePrincipaleBlock" class="hidden">
+			<label for="PèreAdressePrincipale">Adresse Principale</label>
+			<input name="AdressePrincipale" id="PèreAdressePrincipale" type="radio" value="Père" />Oui
+		</p>	
+	</div>
+	
+	<h2 class="trigger"><a href="#">Autre Responsable légal</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Autre">Identité</label>
+			<select name="Autre" id="Autre" onchange="responsableChanged(this.id)"></select>
+		</p>
+		<p id="AutreAutoriteParentaleBlock" class="hidden">
+			<label for="AutreAutoriteParentale">Autorité Parentale</label>
+			<input name="AutreAutoriteParentale" id="AutreAutoriteParentale" type="radio" value="Oui" />Oui
+			<input name="AutreAutoriteParentale" type="radio" value="Non" />Non
+		</p>
+		<p id="AutreAdressePrincipaleBlock" class="hidden">
+			<label for="AutreAdressePrincipale">Adresse Principale</label>
+			<input name="AdressePrincipale" id="AutreAdressePrincipale" type="radio" value="Autre" />Oui
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Scolarité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Promotion">Demande pour l'année scolaire</label>
+			<select name="Promotion" id="Promotion">
+				<option selected="selected"></option>
+			</select>
+		</p>
+		<p>
+			<label for="Niveau">Niveau</label>
+			<select name="Niveau" id="Niveau" onchange="niveauChanged(this.value)">
+				<option selected="selected"></option>
+				<option>PS</option>
+				<option>MS</option>
+				<option>GS</option>
+				<option>CP</option>
+				<option>CE1</option>
+				<option>CE2</option>
+				<option>CM1</option>
+				<option>CM2</option>
+				<option>6e</option>
+				<option>5e</option>
+				<option>4e</option>
+				<option>3e</option>
+			</select>
+		</p>
+		<p id="SiesteBlock" class="hidden">
+			<label for="Sieste">Fais la sieste</label>
+			<input name="Sieste" id="Sieste" type="radio" value="Oui" />Oui
+			<input name="Sieste" type="radio" value="Non" />Non
+		</p>
+		<p id="LV1Block" class="hidden">
+			<label for="LangueVivante1">Langue vivante 1</label>
+			<select name="LangueVivante1" id="LangueVivante1" >
+				<option selected="selected"></option>
+				<option>Anglais</option>
+				<option>Espagnol</option>
+				<option>Allemand</option>
+				<option>Italien</option>
+			</select>
+		</p>
+		<p id="LV2Block" class="hidden">
+			<label for="LangueVivante2">Langue vivante 2</label>
+			<select name="LangueVivante2" id="LangueVivante2" >
+				<option selected="selected"></option>
+				<option>Anglais</option>
+				<option>Espagnol</option>
+				<option>Allemand</option>
+				<option>Italien</option>
+			</select>
+		</p>
+		<p id="AutorisationSortieBlock" class="hidden">
+			<label for="AutorisationSortie">Autorisation de sortie</label>
+			<input name="AutorisationSortie" id="AutorisationSortie" type="radio" value="Oui" />Oui
+			<input name="AutorisationSortie" type="radio" value="Non" />Non
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Situation interne</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Boursier">Boursier</label>
+			<input name="Boursier" type="radio" value="Oui" />Oui
+			<input name="Boursier" id="Boursier" type="radio" value="Non" checked="checked" />Non
+		</p>
+		<p>
+			<label for="Regime">Régime</label>
+			<input name="Regime" id="Regime" type="radio" value="Demi Pensionnaire" checked="checked" />Demi Pensionnaire
+			<input name="Regime" type="radio" value="Externe" />Externe
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Assurance individuelle</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="ResponsabiliteCivile">Responsabilité civile</label>
+			<input name="ResponsabiliteCivile" id="ResponsabiliteCivile" type="radio" value="Oui" />Oui
+			<input name="ResponsabiliteCivile" type="radio" value="Non" checked="checked" />Non
+		</p>
+		<p>
+			<label for="IndividuelleAccident">Individuelle Accident</label>
+			<input name="IndividuelleAccident" id="IndividuelleAccident" type="radio" value="Oui" />Oui
+			<input name="IndividuelleAccident" type="radio" value="Non" checked="checked" />Non
+		</p>
+		<p>
+			<label for="CompagnieAssurance">Compagnie d'assurance</label>
+			<input name="CompagnieAssurance" id="CompagnieAssurance" type="text" maxlength="100" />
+		</p>
+		<p>
+			<label for="NumeroPoliceAssurance">Numéro de police d'assurance</label>
+			<input name="NumeroPoliceAssurance" id="NumeroPoliceAssurance" type="text" maxlength="50" />
+		</p>
+		<p>
+			<label for="AttestationFournie">Attestation fournie</label>
+			<input name="AttestationFournie" id="AttestationFournie" type="radio" value="Oui" />Oui
+			<input name="AttestationFournie" type="radio" value="Non" checked="checked" />Non
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Santé</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="PAI">Projet d'Accueil Individualisé</label>
+			<input name="PAI" id="PAI" type="radio" value="Oui" />Oui
+			<input name="PAI" type="radio" value="Non" checked="checked" />Non
+		</p>
+		<p>
+			<label for="MDPH">Maison Départementale des Personnes Handicapées</label>
+			<input name="MDPH" id="MDPH" type="radio" value="Oui" />Oui
+			<input name="MDPH" type="radio" value="Non" checked="checked" />Non
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Information périscolaire</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="GarderieMatin">Garderie du matin</label>
+			<input name="GarderieMatin" id="GarderieMatin" type="radio" value="Oui" />Oui
+			<input name="GarderieMatin" type="radio" value="Non" checked="checked" />Non
+		</p>
+		<p>
+			<label for="GarderieSoir">Garderie du soir</label>
+			<input name="GarderieSoir" id="GarderieSoir" type="radio" value="Oui" />Oui
+			<input name="GarderieSoir" type="radio" value="Non" checked="checked" />Non
+		</p>
+		<p>
+			<label for="DiffusionAdresseAssociation">Diffusion de l'adresse aux associations</label>
+			<input name="DiffusionAdresseAssociation" id="DiffusionAdresseAssociation" type="radio" value="Oui" checked="checked" />Oui
+			<input name="DiffusionAdresseAssociation" type="radio" value="Non" checked="checked" />Non
+		</p>
+	</div>
+	<div id="finish" ></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="document.getElementById('Père').value = '';responsableChanged('Père');document.getElementById('Mère').value = '';responsableChanged('Mère');document.getElementById('Autre').value = '';responsableChanged('Autre');niveauChanged('');"/>
+		<input type="button" id="submit" class="submit" value="Enregistrer" onClick="enfantEnregistrer()" />
+	</div>
+</form>

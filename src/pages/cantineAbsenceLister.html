@@ -1,0 +1,43 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Identité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Sexe">Sexe</label>
+			<input name="Sexe" id="Sexe" type="radio" value="M" onclick="enfantListerJQuery()" />M
+			<input name="Sexe" type="radio" value="F" onclick="enfantListerJQuery()" />F
+		</p>
+		<p>
+			<label for="Nom">Nom</label>
+			<input name="Nom" id="Nom" type="text" maxlength="50" onchange="enfantListerJQuery()" />
+		</p>
+	</div>
+	<h2 class="trigger"><a>Scolarité</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="promotionChangeCantine()"></select>
+		</p>
+		<p>
+			<!-- généré -->
+			<label for="Classe">Classe</label>
+			<select name="Classe" id="Classe" onchange="classeChangeCantine()"></select>
+		</p>
+		<p id="ServiceCantineBlock" class="hidden">
+			<!-- généré -->
+			<label for="ServiceCantine">Service de cantine</label>
+			<input type="text" name="ServiceCantine" id="ServiceCantine" value="" disabled="disabled" />
+		</p>
+		<p id="HeureRepasBlock" class="hidden">
+			<!-- généré -->
+			<label for="HeureRepas">Horaire</label>
+			<input type="text" name="HeureRepas" id="HeureRepas" value="" disabled="disabled" />
+		</p>
+	</div>
+	<!-- Résultat de requête -->
+	<div name="Enfant" id="Enfant"></div>
+	<div id="button" class="button_multiple_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="setTimeout('promotionChangeCantine()',200);" />
+		<input type="button" id="submit" class="submit" value="Imprimer" onClick="printAbsenceCantine()" />
+		<input type="button" class="submit" id="all" value="Imprimer tout" onClick="printAllAbsenceCantine()" />
+	</div>
+</form>

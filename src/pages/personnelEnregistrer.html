@@ -1,0 +1,85 @@
+<form onSubmit="return false">
+	<input name="idPersonnel" id="idPersonnel" type="hidden" value="" />
+	<h2 class="trigger"><a href="#">Situation Administrative</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="DateEntreeEcole">Date d'entrée dans l'école</label>
+			<input name="DateEntreeEcole" id="DateEntreeEcole" class="datepicker" type="text" maxlength="10" />
+		</p>
+	</div>
+		
+	<h2 class="trigger"><a href="#">Identité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="PersonnelCivilite">Civilité</label>
+			<input name="PersonnelCivilite" id="PersonnelCivilite" type="radio" value="Mme" />Mme
+			<input name="PersonnelCivilite" type="radio" value="Mlle" />Mlle
+			<input name="PersonnelCivilite" type="radio" value="M." />M.
+		</p>
+		<p>
+			<label for="PersonnelNom">Nom</label>
+			<input name="PersonnelNom" id="PersonnelNom" type="text" maxlength="50" />
+		</p>
+		<p>
+			<label for="PersonnelNomUsage">Nom d'usage</label>
+			<input name="PersonnelNomUsage" id="PersonnelNomUsage" type="text" maxlength="50" />
+		</p>
+		<p>
+			<label for="PersonnelPrenom">Prénom</label>
+			<input name="PersonnelPrenom" id="PersonnelPrenom" type="text" maxlength="50" />
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Fonction</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Fonction">Fonction</label>
+			<select name="Fonction" id="Fonction" >
+				<option selected="selected">Enseignant</option>
+				<option>Personnel</option>
+				<option>AVS</option>
+			</select>
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Adresse</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="PersonnelVoie">Voie</label>
+			<input name="PersonnelVoie" id="PersonnelVoie" type="text" maxlength="255" onblur="matchAdresseFields(document.getElementById('PersonnelVoie'),document.getElementById('PersonnelCodePostal'),document.getElementById('PersonnelCommune'),document.getElementById('PersonnelPays'),document.getElementById('PersonnelTelephone'));" />
+		</p>
+		<p>
+			<label for="PersonnelCodePostal">Code Postal</label>
+			<input name="PersonnelCodePostal" id="PersonnelCodePostal" type="text" maxlength="10" onblur="matchCommuneByCodePostalField(document.getElementById('PersonnelCodePostal'),document.getElementById('PersonnelCommune'),document.getElementById('PersonnelPays'));" />
+		</p>
+		<p>
+			<label for="PersonnelCommune">Commune</label>
+			<input name="PersonnelCommune" id="PersonnelCommune" type="text" maxlength="100" />
+		</p>
+		<p>
+			<label for="PersonnelPays">Pays</label>
+			<input name="PersonnelPays" id="PersonnelPays" type="text" maxlength="40" />
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a href="#">Coordonnée</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="PersonnelTelephone">Téléphone Domicile</label>
+			<input name="PersonnelTelephone" id="PersonnelTelephone" type="text" maxlength="10" />
+		</p>
+		<p>
+			<label for="PersonnelMail">Mail</label>
+			<input name="PersonnelMail" id="PersonnelMail" type="text" maxlength="100" />
+		</p>
+		<p>
+			<label for="PersonnelTelephonePortable">Téléphone Portable</label>
+			<input name="PersonnelTelephonePortable" id="PersonnelTelephonePortable" type="text" maxlength="10" />
+		</p>
+	</div>
+	<div id="finish" ></div>
+	<div class="button_validation">
+		<input type="reset" value="Annuler" />
+		<input type="button" id="submit" class="submit" value="Enregistrer" onClick="personnelEnregistrer()" />
+	</div>
+</form>

@@ -1,0 +1,51 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Identité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Sexe">Sexe</label>
+			<input name="Sexe" id="Sexe" type="radio" value="M" onclick="enfantListerJQuery()" />M
+			<input name="Sexe" type="radio" value="F" onclick="enfantListerJQuery()" />F
+		</p>
+		<p>
+			<label for="Nom">Nom</label>
+			<input name="Nom" id="Nom" type="text" maxlength="50" onchange="enfantListerJQuery()" />
+		</p>
+	</div>
+	<h2 class="trigger"><a>Scolarité</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="promotionChangeCantine()"></select>
+		</p>
+		<p>
+			<!-- généré -->
+			<label for="Classe">Classe</label>
+			<select name="Classe" id="Classe" onchange="classeChangeCantine()"></select>
+		</p>
+		<p>
+			<!-- généré -->
+			<label for="ServiceCantine">Service de cantine</label>
+			<input type="text" name="ServiceCantine" id="ServiceCantine" value="" disabled="disabled" />
+		</p>
+		<p>
+			<!-- généré -->
+			<label for="HeureRepas">Horaire</label>
+			<input type="text" name="HeureRepas" id="HeureRepas" value="" disabled="disabled" />
+		</p>
+	</div>
+	<h2 class="trigger"><a>Absence</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Date">Date de l'absence</label>
+			<input name="Date" id="Date" class="datepicker-spec" type="text" maxlength="10"  onchange="enfantListerJQuery()"/>
+		</p>
+	</div>
+
+	<!-- Résultat de requête -->
+	<div class="toggle_container_notcheck" name="Enfant" id="Enfant"></div>
+	<div id="finish" ></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="setTimeout('promotionChangeCantine()',200);" />
+		<input type="button" id="submit" class="submit" value="Enregistrer" onClick="cantineAbsenceEnregistrer()" />
+	</div>
+</form>

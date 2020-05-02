@@ -1,0 +1,48 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Scolarité</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="anneeScolaireChangeClasse()"></select>
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a>Niveau Couvert</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Niveau">Niveau</label>
+			<select name="Niveau" id="Niveau" onchange="classeListerJQuery()">
+				<option selected="selected"></option>
+				<option>PS</option>
+				<option>MS</option>
+				<option>GS</option>
+				<option>CP</option>
+				<option>CE1</option>
+				<option>CE2</option>
+				<option>CM1</option>
+				<option>CM2</option>
+				<option>6e</option>
+				<option>5e</option>
+				<option>4e</option>
+				<option>3e</option>
+			</select>
+		</p>
+	</div>
+	
+	<h2 class="trigger"><a>Enseignant à charge</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Enseignant">Enseignant</label>
+			<select name="Enseignant" id="Enseignant" onchange="classeListerJQuery()"></select>
+		</p>
+	</div>
+	<p>
+		<!-- Résultat de requête -->
+		<div name="Classe" id="Classe"></div>
+	</p>
+	<div id="button" class="button_multiple_validation">
+		<input type="reset" id="reset" value="Annuler"  onclick="classeListerJQuery()">
+		<input type="button" id="submit" class="submit" value="Imprimer" onClick="printClasse()" />
+		<input type="button" class="submit" id="all" value="Imprimer tout" onClick="printAllClasse()" />
+	</div>
+</form>

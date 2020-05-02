@@ -1,0 +1,29 @@
+<form onSubmit="return false">
+	<input name="LieuModifier" id="LieuModifier" type="hidden" value="" />	
+	<input name="DateDebutModifier" id="DateDebutModifier" type="hidden" value="" />	
+	<h2 class="trigger"><a>Prix</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="PrixComptable">Prix agent comptable</label>
+			<input name="PrixComptable" id="PrixComptable" type="text" maxlength="10" value="0" disabled="disabled"/>
+		</p>
+		<p>
+			<label for="PrixAssociation">Prix association</label>
+			<input name="PrixAssociation" id="PrixAssociation" type="text" maxlength="10" value="0" disabled="disabled" />
+		</p>
+		<p>
+			<label for="AideAssociation">Aide association</label>
+			<input name="AideAssociation" id="AideAssociation" type="text" maxlength="10" value="0" disabled="disabled" />
+		</p>
+		<p>
+			<label for="Total">Total</label>
+			<input name="Total" id="Total" type="text" maxlength="10" disabled="disabled" />
+		</p>
+	</div>
+	<div id="EnfantsAffectes"></div>
+	<div id="finish" ></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="calculPriceClasseVerte()" />
+		<input type="button" id="submit" class="submit" value="Enregistrer" onClick="classeVerteVerser()" />
+	</div>
+</form>

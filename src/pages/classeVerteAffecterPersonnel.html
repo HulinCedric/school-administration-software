@@ -1,0 +1,34 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Fonction</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Fonction">Fonction</label>
+			<select name="Fonction" id="Fonction" onchange="personnelListerJQuery()">
+				<option selected="selected"></option>
+				<option>Enseignant</option>
+				<option>Personnel</option>
+				<option>AVS</option>
+			</select>
+		</p>
+	</div>
+	<h2 class="trigger"><a>Classe verte</a></h2>
+	<div class="toggle_container_open">
+		<p>
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="anneeScolaireChangeClasseVerte()"></select>
+		</p>
+		<p>
+			<!-- Résultat de requête -->
+			<label for="ClasseVerte">Classes verte</label>
+			<select name="ClasseVerte" id="ClasseVerte" onchange="personnelListerJQuery()" ></select>
+		</p>
+	</div>
+	
+	<!-- Résultat de requête -->
+	<div class="toggle_container_notcheck" name="Personnel" id="Personnel" ></div>
+	<div id="finish"></div>
+	<div class="button_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="setTimeout('personnelListerJQuery()',200);">
+		<input type="button" id="submit" class="submit" value="Affecter" onClick="personnelAffecter();personnelListerJQuery()" />
+	</div>
+</form>
