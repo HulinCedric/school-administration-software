@@ -33,7 +33,7 @@ function enfantListerJQuery() {
 	arr.push(" E.idEnfant = SI.Enfant ");
 	arr.push(" E.idEnfant = ARL.Enfant ");
 
-  	var data = getValues("DISTINCT E1.*", " (SELECT DISTINCT E.* , MAX( E.DateNaissance ) as maxDate FROM AssociationResponsableLegal AS ARL, Enfant AS E, ScolariteInterne AS SI "+constrainGenerator(arr)+ " GROUP BY ARL.Responsable) AS E1 ", " ORDER BY E1.Nom");
+  	var data = getValues("DISTINCT E1.*", " (SELECT DISTINCT E.* , MAX( E.DateNaissance ) as maxDate FROM AssociationResponsableLegal AS ARL, Enfant AS E, Scolariteinterne AS SI "+constrainGenerator(arr)+ " GROUP BY ARL.Responsable) AS E1 ", " ORDER BY E1.Nom");
   	  	
   	if (data.length > 0 && document.getElementById("submit").value != "Modifier")
   		document.getElementById("all").style.visibility = "";

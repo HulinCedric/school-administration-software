@@ -70,8 +70,18 @@
 								loadobjs('javascripts/enfantLister.js');">
 								<a>Lister</a>
 					</li>
-					<li onclick="loadpage('pages/Construction.html', 'body');"><a>Commission</a></li>
-					<li onclick="loadpage('pages/Construction.html', 'body');"><a>Confirmation</a></li>
+					<li onclick="loadpage('pages/enfantCommission.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/enfantListerCheckboxCommission.js');
+								loadobjs('javascripts/enfantCheckRequest.js');">
+								<a>Commission</a>
+					</li>
+					<li onclick="loadpage('pages/enfantConfirmation.html', 'body');
+								loadobjs('javascripts/jquery.formulaire.js');
+								loadobjs('javascripts/enfantListerCheckboxConfirmation.js');
+								loadobjs('javascripts/enfantCheckRequest.js');">
+								<a>Confirmation</a>
+					</li>
 					<li onclick="loadpage('pages/enfantRentre.html', 'body');
 								loadobjs('javascripts/jquery.formulaire.js');
 								loadobjs('javascripts/enfantListerCheckbox.js');

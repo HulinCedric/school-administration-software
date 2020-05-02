@@ -63,23 +63,31 @@ function classeListerJQuery() {
 
 function classeAddInformationJQuery(demiGroupe, nomClasse) {
 	var arr = new Array();
-	arr.push(" C.Nom = '" + nomClasse + "' ");
+	arr.push(" C.Nom = '" + nomClasseSelected + "' ");
 	arr.push(" C.Promotion =  '" + document.getElementById("Promotion").value + "' ");
-	arr.push(" C.Enseignant = P.idPersonnel ");
 
 	var data = getValues("DISTINCT *", "Classe AS C, Personnel AS P", constrainGenerator(arr));
 	
-	var div = document.getElementById("contain"+demiGroupe+nomClasse);
+	var div = document.getElementById("contain"+nomClasseSelected);
 	div.innerHTML="";
 	
 	// Enseignant
 	//
-	var subSection = addSubSection(div, "Enseignant");
-	var libelle = data[0]["Civilite"] + " " + data[0]["Nom"];
-	if (data[0]["NomUsage"] != undefined)
-		libelle = libelle + " (" + data[0]["NomUsage"] + ")";
-	libelle = libelle + " " + data[0]["Prenom"];
-	addInformation(subSection, "", libelle);
+	var subSection;
+	if (data[0]["Enseignant"] != undefined) {
+	
+		var arr = new Array();
+		arr.push(" P.idPersonnel = "+data[0]["Enseignant"]+" ");
+
+		var Enseignant = getValues("DISTINCT *", "Personnel AS P", constrainGenerator(arr));
+
+		subSection = addSubSection(div, "Enseignant");
+		var libelle = Enseignant[0]["Civilite"] + " " + Enseignant[0]["Nom"];
+		if (Enseignant[0]["NomUsage"] != undefined)
+			libelle = libelle + " (" + Enseignant[0]["NomUsage"] + ")";
+		libelle = libelle + " " + Enseignant[0]["Prenom"];
+		addInformation(subSection, "", libelle);
+	}	
 	
 	// Niveaux concernés
 	//

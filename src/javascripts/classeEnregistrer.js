@@ -1,6 +1,6 @@
 // Promotion
 //
-autoCompleteSelectSimple("Promotion", "Promotion", "Scolariteinterne", "ORDER BY Promotion DESC Limit 0, 3");
+autoCompleteSelectSimple("Promotion", "Promotion", "Scolariteinterne", "WHERE DateEntreeEcole IS NOT NULL ORDER BY Promotion DESC");
 
 // Personnel
 //
@@ -106,12 +106,7 @@ function classeEnregistrer() {
 
   	// Enseignant
 	//
-  	if(document.getElementById("Enseignant").value == "") {
- 		document.getElementById("Enseignant").className = "invalid";
- 		ok = false;
-		erreur = erreur + "<p>L'enseignant n'est pas renseigner</p>";
-  	}
-  	else document.getElementById("Enseignant").className = "valid";
+	document.getElementById("Enseignant").className = "valid";
   	
   	// NomService
 	//

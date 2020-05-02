@@ -7,7 +7,7 @@ function cantineListerJQuery() {
  	var arr = new Array(); 	
  	arr.push(" Promotion = '" + document.getElementById("Promotion").value + "' ");
 
-  	var data = getValues("DISTINCT *", "Classe", constrainGenerator(arr) + " ORDER BY ServiceCantine");
+  	var data = getValues("DISTINCT ServiceCantine", "Classe", constrainGenerator(arr) + " ORDER BY ServiceCantine");
   	  	  	
 	var select = document.getElementById("Cantine");
   	while (select.firstChild)

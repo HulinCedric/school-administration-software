@@ -1,0 +1,53 @@
+<form onSubmit="return false">
+	<h2 class="trigger"><a>Identité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<label for="Sexe">Sexe</label>
+			<input name="Sexe" id="Sexe" type="radio" value="M" onclick="enfantListerJQuery()" />M
+			<input name="Sexe" type="radio" value="F" onclick="enfantListerJQuery()" />F
+		</p>
+		<p>
+			<label for="Nom">Nom</label>
+			<input name="Nom" id="Nom" type="text" maxlength="50" onchange="enfantListerJQuery()" />
+		</p>
+	</div>
+	<h2 class="trigger"><a>Scolarité</a></h2>
+	<div class="toggle_container">
+		<p>
+			<!-- généré -->
+			<label for="Promotion">Année scolaire</label>
+			<select name="Promotion" id="Promotion" onchange="enfantListerJQuery()"></select>
+		</p>	
+		<p>
+			<label for="Niveau">Niveau</label>
+			<select name="Niveau" id="Niveau" onchange="enfantListerJQuery()">
+				<option selected="selected"></option>
+				<option>PS</option>
+				<option>MS</option>
+				<option>GS</option>
+				<option>CP</option>
+				<option>CE1</option>
+				<option>CE2</option>
+				<option>CM1</option>
+				<option>CM2</option>
+				<option>6e</option>
+				<option>5e</option>	
+				<option>4e</option>
+				<option>3e</option>
+			</select>
+		</p>
+	</div>
+	<p>
+			<label for="DecisionCommission">Decision de la commission</label>
+			<input name="DecisionCommission" id="DecisionCommission" type="radio" value="Oui" />Oui
+			<input name="DecisionCommission" type="radio" value="Non" />Non
+	</p>
+	<!-- Résultat de requête -->
+	<div class="toggle_container_check" name="Enfant" id="Enfant" ></div>
+	<div id="finish" ></div>
+	<div class="button_multiple_validation">
+		<input type="reset" id="reset" value="Annuler" onclick="enfantListerJQuery();"/>
+		<!-- Envoi sur formulaire de saisi type enregistrerResponsable -->
+		<input type="button" class="submit" id="submit" value="Ajouter la décision" onClick="enfantCommission(); enfantListerJQuery();" />
+	</div>
+</form>

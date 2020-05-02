@@ -39,6 +39,62 @@ function enfantRentrer() {
     }
 }
 
+function enfantCommission() {
+	var ok = true;
+	var erreur = "";
+	
+	// DecisionCommission
+	//
+  	var DecisionCommission = "";
+  	for(var i = 0; i < document.getElementsByName("DecisionCommission").length; i++)
+  		if(document.getElementsByName("DecisionCommission")[i].checked)
+			DecisionCommission = document.getElementsByName("DecisionCommission")[i].value;
+	if (DecisionCommission == "") {
+ 		ok = false;
+		erreur = erreur + "<p>Veuillez renseigner la décision de la commission</p>";
+	}		
+  	
+	if (ok) {
+		enfantCheckUpdate(document.getElementsByName('Enfants'), 'DecisionCommission', DecisionCommission);
+		document.getElementById("finish").style.display = "block";
+		document.getElementById("finish").className = "finishValid";
+		document.getElementById("finish").innerHTML = "<p>La décision de la commission a bien été enregistré</p>";
+	}
+    else {
+		document.getElementById("finish").style.display = "block";
+		document.getElementById("finish").className = "finishInvalid";
+		document.getElementById("finish").innerHTML = erreur;
+    }
+}
+
+function enfantConfirmation() {
+	var ok = true;
+	var erreur = "";
+	
+	// ConfirmationParents
+	//
+  	var ConfirmationParents = "";
+  	for(var i = 0; i < document.getElementsByName("ConfirmationParents").length; i++)
+  		if(document.getElementsByName("ConfirmationParents")[i].checked)
+			ConfirmationParents = document.getElementsByName("ConfirmationParents")[i].value;
+	if (ConfirmationParents == "") {
+ 		ok = false;
+		erreur = erreur + "<p>Veuillez renseigner la confirmation des parents</p>";
+	}		
+  	
+	if (ok) {
+		enfantCheckUpdate(document.getElementsByName('Enfants'), 'ConfirmationParents', ConfirmationParents);
+		document.getElementById("finish").style.display = "block";
+		document.getElementById("finish").className = "finishValid";
+		document.getElementById("finish").innerHTML = "<p>La confirmation des parents a bien été enregistré</p>";
+	}
+    else {
+		document.getElementById("finish").style.display = "block";
+		document.getElementById("finish").className = "finishInvalid";
+		document.getElementById("finish").innerHTML = erreur;
+    }
+}
+
 function enfantRadier() {
 	var ok = true;
 	var erreur = "";
